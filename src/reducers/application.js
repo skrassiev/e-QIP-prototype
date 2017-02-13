@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import merge from 'deepmerge'
+import historyReducer from './historyReducer'
 
 const defaultState = {}
 
@@ -44,7 +44,7 @@ export default combineReducers({
   Financial: reducer('Financial'),
   Family: reducer('Family'),
   Citizenship: reducer('Citizenship'),
-  History: reducer('History'),
+  History: historyReducer,
   Foreign: reducer('Foreign'),
   TBD: reducer('Tbd'),
   Legal: reducer('Legal'),
@@ -56,12 +56,3 @@ export default combineReducers({
     return state
   }
 })
-
-// Or alternative...
-// export const appReducer = function (state = defaultState, action) {
-  // return merge(state, {
-    // [action.section]: {
-      // [action.property]: action.values
-    // }
-  // })
-// }

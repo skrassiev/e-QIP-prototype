@@ -7,7 +7,14 @@ import History from './History'
 import { mount } from 'enzyme'
 
 const applicationState = {
-  History: {}
+  History: {
+    Employment: {
+      Dates: []
+    },
+    Residence: {
+      Dates: []
+    }
+  }
 }
 
 describe('The History section', () => {

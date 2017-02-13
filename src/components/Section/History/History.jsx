@@ -176,7 +176,7 @@ class History extends ValidationElement {
   residenceSummaryProgress () {
     return (
       <SummaryProgress className="residence eapp-field-wrap"
-                       List={this.residenceRangeList.bind(this)}
+                       List={() => { return this.props.ResidenceDates }}
                        title={i18n.t('history.residence.summary.title')}
                        unit={i18n.t('history.residence.summary.unit')}
                        total="10"
@@ -191,7 +191,7 @@ class History extends ValidationElement {
   employmentSummaryProgress () {
     return (
       <SummaryProgress className="residence eapp-field-wrap"
-                       List={this.employmentRangesList.bind(this)}
+                       List={() => { return this.props.EmploymentDates }}
                        title={i18n.t('history.employment.summary.title')}
                        unit={i18n.t('history.employment.summary.unit')}
                        total="10"
@@ -325,14 +325,19 @@ class History extends ValidationElement {
 function mapStateToProps (state) {
   let section = state.section || {}
   let app = state.application || {}
-  let history = app.History || {}
+  let history = app.History || {
+    Residence: {},
+    Employment: {}
+  }
   let errors = app.Errors || {}
   let completed = app.Completed || {}
   return {
     Section: section,
     History: history,
     Residence: history.Residence || {},
+    ResidenceDates: history.Residence.Dates || [],
     Employment: history.Employment || {},
+    EmploymentDates: history.Employment.Dates || [],
     Education: history.Education || {},
     Errors: errors.history || [],
     Completed: completed.history || []
