@@ -1,9 +1,11 @@
 import React from 'react'
 import { i18n } from '../../../../config'
 import { PoliceValidator } from '../../../../validators'
-import { ValidationElement, Branch, Show, Collection } from '../../../Form'
-import { dateSummary } from '../../History/HistoryCollection/summaries'
+import { ValidationElement, Branch, Show, Accordion, BranchCollection } from '../../../Form'
+import { dateSummary } from '../../History/summaries'
 import Offense from './Offense'
+import OtherOffense from './OtherOffense'
+import DomesticViolence from './DomesticViolence'
 
 /**
  * Convenience function to send updates along their merry way
@@ -26,7 +28,14 @@ export default class Police extends ValidationElement {
       HasCharges: props.HasCharges,
       HasProbation: props.HasProbation,
       HasTrial: props.HasTrial,
+      HasOtherConviction: props.HasOtherConviction,
+      HasOtherFelony: props.HasOtherFelony,
+      HasOtherDomestic: props.HasOtherDomestic,
+      HasOtherFirearms: props.HasOtherFirearms,
+      HasOtherAlcohol: props.HasOtherAlcohol,
       List: props.List,
+      OtherOffenses: props.OtherOffenses,
+      DomesticViolence: props.DomesticViolence,
       errorCodes: []
     }
 
@@ -39,6 +48,13 @@ export default class Police extends ValidationElement {
     this.updateTrial = this.updateTrial.bind(this)
     this.updateList = this.updateList.bind(this)
     this.hasOffenses = this.hasOffenses.bind(this)
+    this.updateDomesticViolence = this.updateDomesticViolence.bind(this)
+    this.updateOtherOffenses = this.updateOtherOffenses.bind(this)
+    this.updateOtherConviction = this.updateOtherConviction.bind(this)
+    this.updateOtherFelony = this.updateOtherFelony.bind(this)
+    this.updateOtherDomestic = this.updateOtherDomestic.bind(this)
+    this.updateOtherFirearms = this.updateOtherFirearms.bind(this)
+    this.updateOtherAlchohol = this.updateOtherAlchohol.bind(this)
   }
 
   onUpdate (name, values, fn) {
@@ -92,6 +108,48 @@ export default class Police extends ValidationElement {
     this.onUpdate('List', collection)
   }
 
+  updateOtherOffenses (value) {
+    this.onUpdate('OtherOffenses', value, () => {
+      this.checkToClear()
+    })
+  }
+
+  updateOtherConviction (value) {
+    this.onUpdate('HasOtherConviction', value, () => {
+      this.checkToClear()
+    })
+  }
+
+  updateOtherFelony (value) {
+    this.onUpdate('HasOtherFelony', value, () => {
+      this.checkToClear()
+    })
+  }
+
+  updateOtherDomestic (value) {
+    this.onUpdate('HasOtherDomestic', value, () => {
+      this.checkToClear()
+    })
+  }
+
+  updateOtherFirearms (value) {
+    this.onUpdate('HasOtherFirearms', value, () => {
+      this.checkToClear()
+    })
+  }
+
+  updateOtherAlchohol (value) {
+    this.onUpdate('HasOtherAlcohol', value, () => {
+      this.checkToClear()
+    })
+  }
+
+  updateDomesticViolence (value, event) {
+    this.onUpdate('DomesticViolence', value, () => {
+      this.checkToClear()
+    })
+  }
+
   /**
    * Handle the validation event.
    */
@@ -132,6 +190,10 @@ export default class Police extends ValidationElement {
     return new PoliceValidator(this.state, null).answeredYes()
   }
 
+  hasOtherOffenses () {
+    return new PoliceValidator(this.state, null).hasOtherOffenses()
+  }
+
   /**
    * Assists in rendering the summary section.
    */
@@ -143,10 +205,30 @@ export default class Police extends ValidationElement {
     const dates = dateSummary(o)
 
     return (
-      <div className="table">
-        <div className="table-cell index">{i18n.t('legal.police.collection.summary.item')} {index + 1}:</div>
-        <div className="table-cell info"><strong>{description}</strong></div>
-        <div className="table-cell dates"><strong>{dates}</strong></div>
+      <span>
+        <span className="index">{i18n.t('legal.police.collection.summary.item')} {index + 1}:</span>
+        <span className="info"><strong>{description}</strong></span>
+        <span className="dates"><strong>{dates}</strong></span>
+      </span>
+    )
+  }
+
+  domesticViolenceBranch () {
+    return (
+      <h3 className="eapp-field-wrap">{i18n.m('legal.police.label.domesticViolence')}</h3>
+    )
+  }
+
+  otherOffenseBranch () {
+    return (
+      <div>
+        <ul className="other-offenses">
+          <li>{i18n.m('legal.police.para.otherOffense.first')}</li>
+          <li>{i18n.m('legal.police.para.otherOffense.second')}</li>
+          <li>{i18n.m('legal.police.para.otherOffense.third')}</li>
+          <li>{i18n.m('legal.police.para.otherOffense.fourth')}</li>
+          <li>{i18n.m('legal.police.para.otherOffense.fifth')}</li>
+        </ul>
       </div>
     )
   }
@@ -207,19 +289,96 @@ export default class Police extends ValidationElement {
         </Branch>
 
         <Show when={this.hasOffenses()}>
-          <Collection minimum="1"
-                      items={this.state.List}
-                      dispatch={this.updateList}
-                      summary={this.summary}
-                      summaryTitle={i18n.t('legal.police.collection.summary.title')}
-                      appendTitle={i18n.t('legal.police.collection.appendTitle')}
-                      appendMessage={i18n.m('legal.police.collection.appendMessage')}
-                      appendLabel={i18n.t('legal.police.collection.append')}>
-            <Offense name="Item"
+          <Accordion minimum="1"
+                     items={this.state.List}
+                     onUpdate={this.updateList}
                      onValidate={this.handleValidation}
+                     summary={this.summary}
+                     description={i18n.t('legal.police.collection.summary.title')}
+                     appendTitle={i18n.t('legal.police.collection.appendTitle')}
+                     appendMessage={i18n.m('legal.police.collection.appendMessage')}
+                     appendLabel={i18n.t('legal.police.collection.append')}>
+            <Offense name="Item"
+                     bind={true}
                      />
-          </Collection>
+          </Accordion>
         </Show>
+
+        <h2 className="eapp-field-wrap">{i18n.t('legal.police.para.otherOffense.intro')}</h2>
+        <Branch name="has_otherconviction"
+          className="eapp-field-wrap no-label otherconviction"
+          value={this.state.HasOtherConviction}
+          help="legal.police.help.otherConviction"
+          onUpdate={this.updateOtherConviction}
+          onValidate={this.handleValidation}>
+          {i18n.m('legal.police.para.otherOffense.first')}
+        </Branch>
+
+        <Branch name="has_otherfelony"
+          className="eapp-field-wrap no-label otherfelony"
+          value={this.state.HasOtherFelony}
+          help="legal.police.help.otherFelony"
+          onUpdate={this.updateOtherFelony}
+          onValidate={this.handleValidation}>
+          {i18n.m('legal.police.para.otherOffense.second')}
+        </Branch>
+
+        <Branch name="has_otherdomestic"
+          className="eapp-field-wrap no-label otherdomestic"
+          value={this.state.HasOtherDomestic}
+          help="legal.police.help.otherDomestic"
+          onUpdate={this.updateOtherDomestic}
+          onValidate={this.handleValidation}>
+          {i18n.m('legal.police.para.otherOffense.third')}
+        </Branch>
+
+        <Branch name="has_otherfirearms"
+          className="eapp-field-wrap no-label otherfirearms"
+          value={this.state.HasOtherFirearms}
+          help="legal.police.help.otherFirearms"
+          onUpdate={this.updateOtherFirearms}
+          onValidate={this.handleValidation}>
+          {i18n.m('legal.police.para.otherOffense.fourth')}
+        </Branch>
+
+        <Branch name="has_otheralchohol"
+          className="eapp-field-wrap no-label otheralcohol"
+          value={this.state.HasOtherAlcohol}
+          help="legal.police.help.otherAlcohol"
+          onUpdate={this.updateOtherAlchohol}
+          onValidate={this.handleValidation}>
+          {i18n.m('legal.police.para.otherOffense.fifth')}
+        </Branch>
+
+        <Show when={this.hasOtherOffenses()}>
+          <Accordion minimum="1"
+            items={this.state.OtherOffenses}
+            onUpdate={this.updateOtherOffenses}
+            onValidate={this.handleValidation}
+            summary={this.summary}
+            description={i18n.t('legal.police.collection.summary.title')}
+            appendTitle={i18n.t('legal.police.collection.appendTitle')}
+            appendMessage={this.otherOffenseBranch()}
+            appendLabel={i18n.t('legal.police.collection.append')}>
+            <OtherOffense name="Item"
+              bind={true}
+              onValidate={this.props.onValidate}
+            />
+          </Accordion>
+        </Show>
+
+        <BranchCollection
+          branchHelp="legal.police.branchCollection.domesticViolence"
+          branch={this.domesticViolenceBranch()}
+          items={this.state.DomesticViolence}
+          onUpdate={this.updateDomesticViolence}
+        >
+          <DomesticViolence name="domestic"
+            bind={true}
+            onValidate={this.handleValidation}
+          />
+        </BranchCollection>
+
       </div>
     )
   }

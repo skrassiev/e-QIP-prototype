@@ -60,7 +60,31 @@ describe('Police record validation', function () {
           HasCharges: 'No',
           HasProbation: 'No',
           HasTrial: 'No',
-          List: []
+          List: [],
+          DomesticViolence: [
+            {
+              Has: 'Yes',
+              domestic: {
+                CourtName: {
+                  value: '4th Circuit Court'
+                },
+                CourtAddress: {
+                  addressType: 'United States',
+                  address: '1234 Some Rd',
+                  city: 'Arlington',
+                  state: 'Virginia',
+                  zipcode: '22202'
+                },
+                Explanation: {
+                  value: 'Some content'
+                },
+                Issued: {
+                  month: '1',
+                  year: '2009'
+                }
+              }
+            }
+          ]
         },
         expected: true
       },
@@ -107,6 +131,30 @@ describe('Police record validation', function () {
                 WasCited: 'No'
               }
             }
+          ],
+          DomesticViolence: [
+            {
+              Has: 'Yes',
+              domestic: {
+                CourtName: {
+                  value: '4th Circuit Court'
+                },
+                CourtAddress: {
+                  addressType: 'United States',
+                  address: '1234 Some Rd',
+                  city: 'Arlington',
+                  state: 'Virginia',
+                  zipcode: '22202'
+                },
+                Explanation: {
+                  value: 'Some content'
+                },
+                Issued: {
+                  month: '1',
+                  year: '2009'
+                }
+              }
+            }
           ]
         },
         expected: true
@@ -135,6 +183,261 @@ describe('Police record validation', function () {
                 InvolvedSubstances: 'No',
                 Address: null,
                 WasCited: 'No'
+              }
+            }
+          ]
+        },
+        expected: false
+      },
+      {
+        state: {
+          HasSummons: 'No',
+          HasArrests: 'No',
+          HasCharges: 'No',
+          HasProbation: 'No',
+          HasTrial: 'Yes',
+          List: [
+            {
+              Item: {
+                Date: {
+                  day: '1',
+                  month: '1',
+                  year: '2016',
+                  date: new Date('1/1/2016')
+                },
+                Description: {
+                  value: 'Description of the offense'
+                },
+                InvolvedViolence: 'No',
+                InvolvedFirearms: 'No',
+                InvolvedSubstances: 'No',
+                Address: {
+                  addressType: 'United States',
+                  address: '1234 Some Rd',
+                  city: 'Arlington',
+                  state: 'Virginia',
+                  zipcode: '22202'
+                },
+                WasCited: 'No'
+              }
+            }
+          ],
+          OtherOffenses: [
+            {
+              Item: {
+                Date: {
+                  day: '1',
+                  month: '1',
+                  year: '2016',
+                  date: new Date('1/1/2016')
+                },
+                Description: {
+                  value: 'Some description'
+                },
+                InvolvedViolence: 'No',
+                InvolvedFirearms: 'Yes',
+                InvolvedSubstances: 'No',
+                CourtType: 'Felony',
+                CourtAddress: {
+                  addressType: 'United States',
+                  address: '1234 Some Rd',
+                  city: 'Arlington',
+                  state: 'Virginia',
+                  zipcode: '22202'
+                },
+                CourtDate: {
+                  day: '1',
+                  month: '1',
+                  year: '2016',
+                  date: new Date('1/1/2016')
+                },
+                CourtName: {
+                  value: 'court name'
+                },
+                CourtCharge: {
+                  value: 'Some charge'
+                },
+                CourtOutcome: {
+                  value: 'Some outcome'
+                },
+                WasSentenced: 'Yes',
+                Sentence: {
+                  AwaitingTrial: 'Yes',
+                  AwaitingTrialExplanation: 'Yes',
+                  ExceedsYear: 'Yes',
+                  Incarcerated: 'Yes',
+                  IncarcerationDates: {
+                    from: {
+                      date: new Date('1/1/2000')
+                    },
+                    to: {
+                      date: new Date('1/1/2004')
+                    },
+                    present: false
+                  },
+                  ProbationDates: {
+                    from: {
+                      date: new Date('1/1/2000')
+                    },
+                    to: {
+                      date: new Date('1/1/2004')
+                    },
+                    present: false
+                  },
+                  Description: {
+                    value: 'Foo'
+                  }
+                }
+              }
+            }
+          ],
+          DomesticViolence: [
+            {
+              Has: 'Yes',
+              domestic: {
+                CourtName: {
+                  value: '4th Circuit Court'
+                },
+                CourtAddress: {
+                  addressType: 'United States',
+                  address: '1234 Some Rd',
+                  city: 'Arlington',
+                  state: 'Virginia',
+                  zipcode: '22202'
+                },
+                Explanation: {
+                  value: 'Some content'
+                },
+                Issued: {
+                  month: '1',
+                  year: '2009'
+                }
+              }
+            }
+          ]
+        },
+        expected: true
+      },
+      {
+        state: {
+          HasSummons: 'No',
+          HasArrests: 'No',
+          HasCharges: 'No',
+          HasProbation: 'No',
+          HasTrial: 'Yes',
+          List: [
+            {
+              Item: {
+                Date: {
+                  day: '1',
+                  month: '1',
+                  year: '2016',
+                  date: new Date('1/1/2016')
+                },
+                Description: {
+                  value: 'Description of the offense'
+                },
+                InvolvedViolence: 'No',
+                InvolvedFirearms: 'No',
+                InvolvedSubstances: 'No',
+                Address: {
+                  addressType: 'United States',
+                  address: '1234 Some Rd',
+                  city: 'Arlington',
+                  state: 'Virginia',
+                  zipcode: '22202'
+                },
+                WasCited: 'No'
+              }
+            }
+          ],
+          OtherOffenses: [
+            {
+              Item: {
+                Date: {
+                  day: '1',
+                  month: '1',
+                  year: '2016',
+                  date: new Date('1/1/2016')
+                },
+                Description: {
+                  value: 'Some description'
+                },
+                InvolvedViolence: 'No',
+                InvolvedFirearms: 'Yes',
+                InvolvedSubstances: 'No',
+                CourtType: 'Felony',
+                CourtAddress: {
+                  addressType: 'United States',
+                  address: '1234 Some Rd',
+                  city: 'Arlington',
+                  state: 'Virginia',
+                  zipcode: '22202'
+                },
+                CourtDate: {
+                  day: '1',
+                  month: '1',
+                  year: '2016',
+                  date: new Date('1/1/2016')
+                },
+                CourtName: {
+                  value: 'court name'
+                },
+                CourtCharge: {
+                  value: 'Some charge'
+                },
+                WasSentenced: 'Yes',
+                Sentence: {
+                  AwaitingTrial: 'Yes',
+                  AwaitingTrialExplanation: 'Yes',
+                  ExceedsYear: 'Yes',
+                  Incarcerated: 'Yes',
+                  IncarcerationDates: {
+                    from: {
+                      date: new Date('1/1/2000')
+                    },
+                    to: {
+                      date: new Date('1/1/2004')
+                    },
+                    present: false
+                  },
+                  ProbationDates: {
+                    from: {
+                      date: new Date('1/1/2000')
+                    },
+                    to: {
+                      date: new Date('1/1/2004')
+                    },
+                    present: false
+                  },
+                  Description: {
+                    value: 'Foo'
+                  }
+                }
+              }
+            }
+          ],
+          DomesticViolence: [
+            {
+              Has: 'Yes',
+              domestic: {
+                CourtName: {
+                  value: '4th Circuit Court'
+                },
+                CourtAddress: {
+                  addressType: 'United States',
+                  address: '1234 Some Rd',
+                  city: 'Arlington',
+                  state: 'Virginia',
+                  zipcode: '22202'
+                },
+                Explanation: {
+                  value: 'Some content'
+                },
+                Issued: {
+                  month: '1',
+                  year: '2009'
+                }
               }
             }
           ]

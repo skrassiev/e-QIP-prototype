@@ -13,7 +13,7 @@ describe('The Police record component', () => {
     expect(component.find('.charges').length).toEqual(1)
     expect(component.find('.probation').length).toEqual(1)
     expect(component.find('.trial').length).toEqual(1)
-    expect(component.find('.collection').length).toEqual(0)
+    expect(component.find('.accordion').length).toEqual(0)
   })
 
   it('selecting all "no" nothing happens', () => {
@@ -26,19 +26,42 @@ describe('The Police record component', () => {
     component.find('.charges .no input').simulate('change')
     component.find('.probation .no input').simulate('change')
     component.find('.trial .no input').simulate('change')
-    expect(component.find('.collection').length).toEqual(0)
+    expect(component.find('.accordion').length).toEqual(0)
   })
 
-  it('selecting at least one "yes" displays the form', () => {
+
+  it('selecting yes to having been issued a summons, citation, arrest, charge or trial displays offense', () => {
+    const tests = [
+      {
+        selector: '.summons .yes input',
+        expect: 1
+      },
+      {
+        selector: '.arrests .yes input',
+        expect: 1
+      },
+      {
+        selector: '.charges .yes input',
+        expect: 1
+      },
+      {
+        selector: '.probation .yes input',
+        expect: 1
+      },
+      {
+        selector: '.trial .yes input',
+        expect: 1
+      }
+    ]
+
     const expected = {
       name: 'police-record'
     }
-    const component = mount(<Police {...expected} />)
-    component.find('.summons .no input').simulate('change')
-    component.find('.arrests .no input').simulate('change')
-    component.find('.charges .no input').simulate('change')
-    component.find('.probation .no input').simulate('change')
-    component.find('.trial .yes input').simulate('change')
-    expect(component.find('.collection').length).toEqual(1)
+
+    tests.forEach(test => {
+      const component = mount(<Police {...expected} />)
+      component.find(test.selector).simulate('change')
+      expect(component.find('.accordion').length).toEqual(test.expect)
+    })
   })
 })
