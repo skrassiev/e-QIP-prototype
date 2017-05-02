@@ -8,6 +8,7 @@ import IntroHeader from '../../Form/IntroHeader'
 import { push } from '../../../middleware/history'
 import { updateApplication, reportErrors, reportCompletion } from '../../../actions/ApplicationActions'
 import { SectionViews, SectionView } from '../SectionView'
+import Direct from './Direct/Direct'
 
 class Foreign extends ValidationElement {
   constructor (props) {
@@ -147,6 +148,17 @@ class Foreign extends ValidationElement {
                       onUpdate={this.onUpdate.bind(this, 'Passport')}
                       onValidate={this.onValidate.bind(this)}
                       />
+          </SectionView>
+
+          <SectionView name="direct"
+                       back="foreign/passport"
+                       backLabel={i18n.t('foreign.destination.passport')}
+                       next="foreign/activities"
+                       nextLabel={i18n.t('foreign.destination.activities')}>
+                       <Direct name="direct"
+                         onUpdate={this.onUpdate.bind(this, 'Direct')}
+                         onValidate={this.onValidate.bind(this)}
+                       />
           </SectionView>
 
           <SectionView name="contacts"

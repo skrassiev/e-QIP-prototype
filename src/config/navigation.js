@@ -89,6 +89,7 @@ const navigation = [
     hidden: false,
     subsections: [
       { name: 'U.S. passport information', url: 'passport' },
+      { name: 'Direct control', url: 'direct' },
       { hidden: true, name: 'Foreign contacs', url: 'contacts' },
       { hidden: true, name: 'Foreign activities', url: 'activities' },
       { hidden: true, name: 'Foreign business, professional activities, and government contacts', url: 'business' },
