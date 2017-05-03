@@ -38,8 +38,16 @@ export default class Interest extends ValidationElement {
     }
   }
 
-  updateInterestTypes (values) {
-    this.update('InterestTypes', values)
+  updateInterestTypes (event) {
+    let interestType = event.target.value
+    let selected = [...(this.props.InterestTypes || [])]
+    if (selected.includes(interestType)) {
+      selected.splice(selected.indexOf(interestType), 1)
+    } else {
+      selected.push(interestType)
+    }
+
+    this.update('InterestTypes', selected)
   }
 
   updateInterestType (values) {
