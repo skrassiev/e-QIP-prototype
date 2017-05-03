@@ -141,6 +141,7 @@ export default class Interest extends ValidationElement {
           adjustFor="labels"
           shrink={true}>
           <DateControl name="Acquired"
+            className="acquired"
             {...this.props.Acquired}
             label={i18n.t(`foreign.${prefix}.label.acquired`)}
             hideDay={true}
@@ -191,6 +192,7 @@ export default class Interest extends ValidationElement {
             or={i18n.t(`foreign.${prefix}.label.or`)}
             onUpdate={this.updateRelinquishedNotApplicable}>
             <DateControl name="Relinquished"
+              className="relinquished"
               {...this.props.Relinquished}
               label={i18n.t(`foreign.${prefix}.label.relinquished`)}
               hideDay={true}
