@@ -53,10 +53,12 @@ class Foreign extends ValidationElement {
 
     let cstatus = 'neutral'
     if (this.hasStatus('passport', status, true) &&
-        this.hasStatus('passport', status, true)) {
+        this.hasStatus('contacts', status, true) &&
+        this.hasStatus('direct', status, true)) {
       cstatus = 'complete'
     } else if (this.hasStatus('passport', status, false) ||
-               this.hasStatus('contacts', status, false)) {
+               this.hasStatus('contacts', status, false) ||
+               this.hasStatus('direct', status, false)) {
       cstatus = 'incomplete'
     }
     let completed = {

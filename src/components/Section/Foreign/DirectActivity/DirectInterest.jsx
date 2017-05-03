@@ -98,25 +98,25 @@ export default class DirectInterest extends ValidationElement {
           <CheckboxGroup className="interest-types option-list"
             selectedValues={this.props.InterestTypes}>
             <Checkbox name="interest-type"
-              label={i18n.m(`foreign.direct.interest.label.interestTypes.yourself`)}
+              label={i18n.t(`foreign.direct.interest.label.interestTypes.yourself`)}
               value="Yourself"
               className="yourself"
               onChange={this.updateInterestTypes}
             />
             <Checkbox name="interest-type"
-              label={i18n.m(`foreign.direct.interest.label.interestTypes.spouse`)}
+              label={i18n.t(`foreign.direct.interest.label.interestTypes.spouse`)}
               value="Spouse"
               className="spouse"
               onChange={this.updateInterestTypes}
             />
             <Checkbox name="interest-type"
-              label={i18n.m(`foreign.direct.interest.label.interestTypes.cohabitant`)}
+              label={i18n.t(`foreign.direct.interest.label.interestTypes.cohabitant`)}
               value="Cohabitant"
               className="cohabitant"
               onChange={this.updateInterestTypes}
             />
             <Checkbox name="interest-type"
-              label={i18n.m(`foreign.direct.interest.label.interestTypes.dependentChildren`)}
+              label={i18n.t(`foreign.direct.interest.label.interestTypes.dependentChildren`)}
               value="DependentChildren"
               className="dependent-children"
               onChange={this.updateInterestTypes}
