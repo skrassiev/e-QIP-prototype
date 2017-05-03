@@ -58,14 +58,14 @@ export default class CoOwner extends ValidationElement {
           />
         </Field>
 
-        <Field title={i18n.t(`foreign.${prefix}.heading.currentAddress`)}
-          help={`foreign.${prefix}.help.currentAddress`}
+        <Field title={i18n.t(`foreign.${prefix}.heading.address`)}
+          help={`foreign.${prefix}.help.address`}
           adjustFor="labels"
           shrink={true}>
-          <Address name="CurrentAddress"
-            {...this.props.CurrentAddress}
-            label={i18n.t(`foreign.${prefix}.label.currentAddress`)}
-            onUpdate={this.updateCurrentAddress}
+          <Address name="Address"
+            {...this.props.Address}
+            label={i18n.t(`foreign.${prefix}.label.address`)}
+            onUpdate={this.updateAddress}
             onValidate={this.props.onValidate}
           />
         </Field>
