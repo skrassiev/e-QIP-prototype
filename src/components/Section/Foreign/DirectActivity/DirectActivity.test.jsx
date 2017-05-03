@@ -1,10 +1,10 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import Direct from './Direct'
+import DirectActivity from './DirectActivity'
 
-describe('The Direct component', () => {
+describe('The DirectActivity component', () => {
   it('Renders without errors', () => {
-    const component = mount(<Direct />)
+    const component = mount(<DirectActivity />)
     expect(component.find('.direct').length).toBe(1)
   })
 })

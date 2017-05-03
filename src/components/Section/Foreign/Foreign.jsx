@@ -9,7 +9,7 @@ import { ValidationElement, IntroHeader } from '../../Form'
 import Passport from './Passport'
 import Contacts from './Contacts'
 import { Advice } from './Business'
-import Direct from './Direct'
+import DirectActivity from './DirectActivity'
 
 class Foreign extends ValidationElement {
   constructor (props) {
@@ -161,9 +161,9 @@ class Foreign extends ValidationElement {
                        backLabel={i18n.t('foreign.destination.contacts')}
                        next="foreign/business"
                        nextLabel={i18n.t('foreign.destination.business')}>
-            <Direct name="direct"
-                    {...this.props.Direct}
-                    onUpdate={this.onUpdate.bind(this, 'Direct')}
+            <DirectActivity name="direct"
+                    {...this.props.DirectActivity}
+                    onUpdate={this.onUpdate.bind(this, 'DirectActivity')}
                     onValidate={this.handleValidation}
                     />
           </SectionView>
@@ -172,9 +172,9 @@ class Foreign extends ValidationElement {
                        backLabel={i18n.t('foreign.destination.contacts')}
                        next="foreign/business"
                        nextLabel={i18n.t('foreign.destination.business')}>
-            <Direct name="direct"
-                    {...this.props.Direct}
-                    onUpdate={this.onUpdate.bind(this, 'Direct')}
+            <DirectActivity name="direct"
+                    {...this.props.DirectActivity}
+                    onUpdate={this.onUpdate.bind(this, 'DirectActivity')}
                     onValidate={this.handleValidation}
                     />
           </SectionView>
@@ -238,7 +238,7 @@ function mapStateToProps (state) {
     Section: section,
     Foreign: foreign,
     Passport: foreign.Passport || {},
-    Direct: foreign.Direct || {},
+    DirectActivity: foreign.DirectActivity || {},
     Contacts: foreign.Contacts || {},
     Errors: errors.foreign || [],
     Completed: completed.foreign || [],

@@ -4,7 +4,7 @@ import { Accordion, ValidationElement, Branch, Show } from '../../../Form'
 import { DirectInterestsValidator } from '../../../../validators'
 import Interest from '../Interest'
 
-export default class Direct extends ValidationElement {
+export default class DirectActivity extends ValidationElement {
   constructor (props) {
     super(props)
 
@@ -106,7 +106,7 @@ export default class Direct extends ValidationElement {
   }
 }
 
-Direct.defaultProps = {
+DirectActivity.defaultProps = {
   List: [],
   defaultState: true
 }
