@@ -4737,7 +4737,13 @@ const en = {
       },
       label: {
         relinquishedNotApplicable: 'Not applicable',
-        or: 'or'
+        or: 'or',
+        interestTypes: {
+          yourself: 'Yourself',
+          spouse: 'Spouse or legally recognized civil union/domestic partner',
+          cohabitant: 'Cohabitant',
+          dependentChildren: 'Dependent children'
+        }
       },
       help: {
         interestTypes: {
@@ -4788,6 +4794,24 @@ const en = {
         appendMessage: 'If yes use the button below to add another interest.',
         appendLabel: 'Add another interest',
         itemType: 'Interest'
+      },
+      coOwner: {
+        heading: {
+          name: 'Provide full name of co-owner',
+          currentAddress: 'Provide co-owner current address',
+          countries: 'Provide co-owner’s country(ies) of citizenship',
+          relationshipNature: 'Provide the nature of your relationship with the co-owner'
+
+        },
+        label: {
+          currentAddress: 'This address is'
+        }
+      },
+      coOwners: {
+        heading: {
+          hasCoOwners: 'Are there any co-owners of this foreign financial interest?',
+          hasCoOwnersAppend: 'Are there any additional co-owners of this foreign financial interest?'
+        }
       }
     }
   },

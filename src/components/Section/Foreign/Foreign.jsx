@@ -156,6 +156,7 @@ class Foreign extends ValidationElement {
                        next="foreign/activities"
                        nextLabel={i18n.t('foreign.destination.activities')}>
                        <Direct name="direct"
+                         {...this.props.Direct}
                          onUpdate={this.onUpdate.bind(this, 'Direct')}
                          onValidate={this.onValidate.bind(this)}
                        />
@@ -217,6 +218,7 @@ function mapStateToProps (state) {
     Section: section,
     Foreign: foreign,
     Passport: foreign.Passport || {},
+    Direct: foreign.Direct || {},
     Errors: errors.foreign || [],
     Completed: completed.foreign || [],
     suggestedNames: names

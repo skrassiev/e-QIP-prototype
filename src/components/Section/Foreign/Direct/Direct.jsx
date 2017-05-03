@@ -9,26 +9,22 @@ export default class Direct extends ValidationElement {
     super(props)
 
     this.state = {
-      HasInterests: props.HasInterests,
-      List: props.List,
       errorCodes: []
     }
 
     this.update = this.update.bind(this)
     this.updateHasInterests = this.updateHasInterests.bind(this)
     this.updateList = this.updateList.bind(this)
-    this.handleValidation = this.handleValidation.bind(this)
   }
 
   update (field, values) {
-    this.setState({[field]: values}, () => {
-      if (this.props.onUpdate) {
-        this.props.onUpdate({
-          IsIncompetent: this.state.IsIncompetent,
-          List: this.state.List
-        })
-      }
-    })
+    if (this.props.onUpdate) {
+      this.props.onUpdate({
+        HasInterests: this.props.HasInterests,
+        List: this.props.List,
+        [field]: values
+      })
+    }
   }
 
   updateList (values) {
@@ -69,7 +65,7 @@ export default class Direct extends ValidationElement {
       <span className="content">
         <span className="index">{type} {index + 1}:</span>
         <span className="courtname">
-          <strong>{courtName || i18n.t('foreign.direct.collection.summaryCourtName')}</strong>
+          <strong>{courtName || i18n.t('foreign.direct.collection.summary')}</strong>
         </span>
         <span className="occurred"><strong>{courtName && occurred}</strong></span>
       </span>
@@ -82,15 +78,15 @@ export default class Direct extends ValidationElement {
         <h3>{i18n.t('foreign.direct.heading.title')}</h3>
         {i18n.m('foreign.direct.para.intro')}
         <Branch name="has_interests"
-          value={this.state.HasInterests}
+          value={this.props.HasInterests}
           onValidate={this.handleValidation}
           onUpdate={this.updateHasInterests}>
         </Branch>
 
-        <Show when={this.state.HasInterests === 'Yes'}>
+        <Show when={this.props.HasInterests === 'Yes'}>
           <Accordion minimum="1"
             defaultState={this.props.defaultState}
-            items={this.state.List}
+            items={this.props.List}
             onUpdate={this.updateList}
             summary={this.summary}
             onValidate={this.handleValidation}
