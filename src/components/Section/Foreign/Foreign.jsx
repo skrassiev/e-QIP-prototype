@@ -1,14 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { i18n } from '../../../config'
-import AuthenticatedView from '../../../views/AuthenticatedView'
-import ValidationElement from '../../Form/ValidationElement'
-import Passport from './Passport'
-import IntroHeader from '../../Form/IntroHeader'
 import { push } from '../../../middleware/history'
-import { updateApplication, reportErrors, reportCompletion } from '../../../actions/ApplicationActions'
+import { i18n } from '../../../config'
 import { SectionViews, SectionView } from '../SectionView'
-import Direct from './Direct/Direct'
+import { updateApplication, reportErrors, reportCompletion } from '../../../actions/ApplicationActions'
+import AuthenticatedView from '../../../views/AuthenticatedView'
+import { ValidationElement, IntroHeader } from '../../Form'
+import Passport from './Passport'
+import Contacts from './Contacts'
+import { Advice } from './Business'
+import Direct from './Direct'
 
 class Foreign extends ValidationElement {
   constructor (props) {
@@ -51,9 +52,11 @@ class Foreign extends ValidationElement {
     }
 
     let cstatus = 'neutral'
-    if (this.hasStatus('passport', status, true)) {
+    if (this.hasStatus('passport', status, true) &&
+        this.hasStatus('passport', status, true)) {
       cstatus = 'complete'
-    } else if (this.hasStatus('passport', status, false)) {
+    } else if (this.hasStatus('passport', status, false) ||
+               this.hasStatus('contacts', status, false)) {
       cstatus = 'incomplete'
     }
     let completed = {
@@ -95,31 +98,22 @@ class Foreign extends ValidationElement {
     return subsection
   }
 
-  /**
-   * Intro to the section when information is present
-   */
-  intro () {
-    return (
-      <div className="foreign intro review-screen">
-        <div className="usa-grid-full">
-          <IntroHeader Errors={this.props.Errors}
-                       Completed={this.props.Completed}
-                       tour={i18n.t('foreign.tour.para')}
-                       review={i18n.t('foreign.review.para')}
-                       onTour={this.handleTour}
-                       onReview={this.handleReview}
-                       />
-        </div>
-      </div>
-    )
-  }
-
   render () {
     return (
       <div>
         <SectionViews current={this.props.subsection} dispatch={this.props.dispatch}>
           <SectionView name="">
-            {this.intro()}
+            <div className="foreign intro review-screen">
+              <div className="usa-grid-full">
+                <IntroHeader Errors={this.props.Errors}
+                            Completed={this.props.Completed}
+                            tour={i18n.t('foreign.tour.para')}
+                            review={i18n.t('foreign.review.para')}
+                            onTour={this.handleTour}
+                            onReview={this.handleReview}
+                            />
+              </div>
+            </div>
           </SectionView>
 
           <SectionView name="review"
@@ -150,42 +144,68 @@ class Foreign extends ValidationElement {
                       />
           </SectionView>
 
-          <SectionView name="direct"
-                       back="foreign/passport"
-                       backLabel={i18n.t('foreign.destination.passport')}
-                       next="foreign/activities"
-                       nextLabel={i18n.t('foreign.destination.activities')}>
-                       <Direct name="direct"
-                         {...this.props.Direct}
-                         onUpdate={this.onUpdate.bind(this, 'Direct')}
-                         onValidate={this.onValidate.bind(this)}
-                       />
-          </SectionView>
-
           <SectionView name="contacts"
                        back="foreign/passport"
                        backLabel={i18n.t('foreign.destination.passport')}
                        next="foreign/activities"
                        nextLabel={i18n.t('foreign.destination.activities')}>
+            <Contacts name="contacts"
+                      {...this.props.Contacts}
+                      onUpdate={this.onUpdate.bind(this, 'Contacts')}
+                      onValidate={this.onValidate.bind(this)}
+                      />
           </SectionView>
 
-          <SectionView name="activites"
+          <SectionView name="activities"
                        back="foreign/contacts"
                        backLabel={i18n.t('foreign.destination.contacts')}
                        next="foreign/business"
                        nextLabel={i18n.t('foreign.destination.business')}>
+            <Direct name="direct"
+                    {...this.props.Direct}
+                    onUpdate={this.onUpdate.bind(this, 'Direct')}
+                    onValidate={this.handleValidation}
+                    />
+          </SectionView>
+          <SectionView name="activities/direct"
+                       back="foreign/contacts"
+                       backLabel={i18n.t('foreign.destination.contacts')}
+                       next="foreign/business"
+                       nextLabel={i18n.t('foreign.destination.business')}>
+            <Direct name="direct"
+                    {...this.props.Direct}
+                    onUpdate={this.onUpdate.bind(this, 'Direct')}
+                    onValidate={this.handleValidation}
+                    />
           </SectionView>
 
           <SectionView name="business"
-                       back="foreign/activities"
-                       backLabel={i18n.t('foreign.destination.activities')}
-                       next="foreign/travel"
-                       nextLabel={i18n.t('foreign.destination.travel')}>
+                       back="foreign/activities/support"
+                       backLabel={i18n.t('foreign.destination.activities.support')}
+                       next="foreign/business/family"
+                       nextLabel={i18n.t('foreign.destination.business.family')}>
+            <Advice name="advice"
+                    {...this.props.Advice}
+                    onUpdate={this.updateAdvice}
+                    onValidate={this.handleValidation}
+                    />
+          </SectionView>
+
+          <SectionView name="business/advice"
+                       back="foreign/activities/support"
+                       backLabel={i18n.t('foreign.destination.activities.support')}
+                       next="foreign/business/family"
+                       nextLabel={i18n.t('foreign.destination.business.family')}>
+            <Advice name="advice"
+                    {...this.props.Advice}
+                    onUpdate={this.updateAdvice}
+                    onValidate={this.handleValidation}
+                    />
           </SectionView>
 
           <SectionView name="travel"
-                       back="foreign/business"
-                       backLabel={i18n.t('foreign.destination.business')}
+                       back="foreign/business/voting"
+                       backLabel={i18n.t('foreign.destination.business.voting')}
                        next="foreign/review"
                        nextLabel={i18n.t('foreign.destination.review')}>
           </SectionView>
@@ -219,6 +239,7 @@ function mapStateToProps (state) {
     Foreign: foreign,
     Passport: foreign.Passport || {},
     Direct: foreign.Direct || {},
+    Contacts: foreign.Contacts || {},
     Errors: errors.foreign || [],
     Completed: completed.foreign || [],
     suggestedNames: names

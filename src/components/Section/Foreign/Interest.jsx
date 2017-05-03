@@ -1,6 +1,6 @@
 import React from 'react'
 import { i18n } from '../../../config'
-import { ValidationElement, Field, Text, DateControl, Textarea, NotApplicable, Checkbox, CheckboxGroup } from '../../Form'
+import { ValidationElement, Currency, Field, Text, DateControl, Textarea, NotApplicable, Checkbox, CheckboxGroup } from '../../Form'
 import CoOwners from './CoOwners'
 
 export default class Interest extends ValidationElement {
@@ -164,7 +164,7 @@ export default class Interest extends ValidationElement {
 
         <Field title={i18n.t(`foreign.${prefix}.heading.cost`)}
           help={`foreign.${prefix}.help.cost`}>
-          <Text name="Cost"
+          <Currency name="Cost"
             className="cost"
             {...this.props.Cost}
             onUpdate={this.updateCost}
@@ -174,7 +174,7 @@ export default class Interest extends ValidationElement {
 
         <Field title={i18n.t(`foreign.${prefix}.heading.value`)}
           help={`foreign.${prefix}.help.value`}>
-          <Text name="Value"
+          <Currency name="Value"
             className="value"
             {...this.props.Value}
             onUpdate={this.updateValue}

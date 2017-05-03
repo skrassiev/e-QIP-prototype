@@ -56,7 +56,6 @@ export default class Diagnosis extends ValidationElement {
 
   render () {
     const prefix = this.props.prefix
-    const currentDate = new Date()
     return (
       <div className="diagnosis">
         <Field title={i18n.t(`psychological.${prefix}.heading.condition`)}>
@@ -76,7 +75,7 @@ export default class Diagnosis extends ValidationElement {
                      receiveProps={this.props.receiveProps}
                      onUpdate={this.updateDiagnosed}
                      prefix={prefix}
-                     maxDate={currentDate}
+                     minDate={this.props.ApplicantBirthDate}
                      onValidate={this.props.onValidate}
                      />
         </Field>
@@ -101,32 +100,36 @@ export default class Diagnosis extends ValidationElement {
                      />
         </div>
 
-        <Field title={i18n.t(`psychological.${prefix}.heading.effective`)}
-               adjustFor="buttons">
-          <RadioGroup className="effective" selectedValue={this.props.Effective}>
-            <Radio name="effective"
-                   label="Yes"
-                   value="Yes"
-                   onUpdate={this.updateEffective}>
-            </Radio>
-            <Radio name="effective"
-                   label="No"
-                   value="No"
-                   onUpdate={this.updateEffective}>
-            </Radio>
-          </RadioGroup>
-        </Field>
+        <Show when={this.props.prefix !== 'existingConditions.diagnosis'}>
+          <div>
+            <Field title={i18n.t(`psychological.${prefix}.heading.effective`)}
+              adjustFor="buttons">
+              <RadioGroup className="effective" selectedValue={this.props.Effective}>
+                <Radio name="effective"
+                  label="Yes"
+                  value="Yes"
+                  onUpdate={this.updateEffective}>
+                </Radio>
+                <Radio name="effective"
+                  label="No"
+                  value="No"
+                  onUpdate={this.updateEffective}>
+                </Radio>
+              </RadioGroup>
+            </Field>
 
-        <Show when={this.props.Effective === 'No'}>
-          <Field title={i18n.t(`psychological.${prefix}.heading.explanation`)}
-                 help={`psychological.${prefix}.help.explanation`}>
-            <Textarea name="Explanation"
-                      className="explanation"
-                      {...this.props.Explanation}
-                      onUpdate={this.updateExplanation}
-                      onValidate={this.props.onValidate}
-                      />
-          </Field>
+            <Show when={this.props.Effective === 'No'}>
+              <Field title={i18n.t(`psychological.${prefix}.heading.explanation`)}
+                help={`psychological.${prefix}.help.explanation`}>
+                <Textarea name="Explanation"
+                  className="explanation"
+                  {...this.props.Explanation}
+                  onUpdate={this.updateExplanation}
+                  onValidate={this.props.onValidate}
+                />
+              </Field>
+            </Show>
+          </div>
         </Show>
       </div>
     )

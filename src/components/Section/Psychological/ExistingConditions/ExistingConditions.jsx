@@ -104,7 +104,7 @@ export default class ExistingConditions extends ValidationElement {
     )
   }
   isValid () {
-    return new ExistingConditionsValidator(this.state).isValid()
+    return new ExistingConditionsValidator(this.state, { prefix: this.props.prefix }).isValid()
   }
 
   render () {
@@ -172,6 +172,7 @@ export default class ExistingConditions extends ValidationElement {
                 appendMessage={i18n.m('psychological.existingConditions.treatment.collection.appendMessage')}
                 appendLabel={i18n.t('psychological.existingConditions.treatment.collection.appendLabel')}>
                 <Diagnosis name="Diagnosis"
+                  ApplicantBirthDate={this.props.ApplicantBirthDate}
                   prefix="existingConditions.diagnosis"
                   bind={true} />
               </Accordion>

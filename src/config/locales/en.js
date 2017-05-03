@@ -303,6 +303,18 @@ const en = {
         note: ''
       }
     },
+    apoFpo: {
+      length: {
+        title: 'APO/FPO length',
+        message: 'APO/FPO state code must be 2 letters',
+        note: ''
+      },
+      pattern: {
+        title: 'APO/FPO not in an acceptable format',
+        message: 'APO/FPO state code must be 2 letters',
+        note: 'Note: Typically the value is either AA, AE, or AP.'
+      }
+    },
     passport: {
       number: {
         pattern: {
@@ -469,12 +481,28 @@ const en = {
         note: ''
       }
     },
+    order: {
+      datecontrol: {
+        max: {
+          title: 'Invalid date provided',
+          message: 'Order date value cannot exceed todays date'
+        },
+        min: {
+          title: 'Invalid date provided',
+          message: 'Order date value must be on or after your date of birth'
+        }
+      }
+    },
     hospitalization: {
       to: {
         datecontrol: {
           max: {
             title: 'Invalid date provided',
             message: 'Hospitalization to date value cannot exceed todays date'
+          },
+          min: {
+            title: 'Invalid date provided',
+            message: 'Hospitalization to date value must be on or after your date of birth'
           }
         }
       },
@@ -483,6 +511,10 @@ const en = {
           max: {
             title: 'Invalid date provided',
             message: 'Hospitalization from date value cannot exceed todays date'
+          },
+          min: {
+            title: 'Invalid date provided',
+            message: 'Hospitalization from date value must be on or after your date of birth'
           }
         }
       }
@@ -493,6 +525,10 @@ const en = {
           max: {
             title: 'Invalid date provided',
             message: 'Diagnosis to date value cannot exceed todays date'
+          },
+          min: {
+            title: 'Invalid date provided',
+            message: 'Diagnosis to date value must be on or after your date of birth'
           }
         }
       },
@@ -501,6 +537,10 @@ const en = {
           max: {
             title: 'Invalid date provided',
             message: 'Diagnosis from date value cannot exceed todays date'
+          },
+          min: {
+            title: 'Invalid date provided',
+            message: 'Diagnosis from date value must be on or after your date of birth'
           }
         }
       }
@@ -955,7 +995,7 @@ const en = {
         append: 'Add bankruptcy'
       },
       heading: {
-        petitionType: 'Petition Type',
+        petitionType: 'Select the applicable bankruptcy petition type',
         courtNumber: 'Provide the bankruptcy court docket/account number',
         dateFiled: 'Provide the date bankruptcy was filed',
         dateDischarged: 'Provide the date of bankruptcy discharge',
@@ -2620,7 +2660,8 @@ const en = {
         placeholder: 'Enter ZIP Code'
       },
       apoFpo: {
-        label: 'APO/FPO State Code'
+        label: 'APO/FPO State Code',
+        placeholder: 'Enter state code (AA, AE, AP)'
       },
       apoFpoType: {
         apo: {
@@ -4661,8 +4702,24 @@ const en = {
       tbd: 'TBD',
       contacts: 'Foreign Contacts',
       passport: 'U.S. passport information',
-      activities: 'Foreign activities',
-      business: 'Foreign business, professional activities, and government contacts',
+      activities: {
+        direct: 'Direct control',
+        indirect: 'Indirect conttrol',
+        realestate: 'Real estate purchase',
+        benefits: 'Foreign benefits',
+        support: 'Foreign national support'
+      },
+      business: {
+        advice: 'Support provided',
+        family: 'Immediate family foreign support',
+        employment: 'Employment',
+        ventures: 'Other business ventures',
+        events: 'Event participation',
+        contact: 'Immediate family contact',
+        sponsorship: 'Foreign national sponsorship',
+        political: 'Held political office',
+        voting: 'Voting'
+      },
       travel: 'Foreign countries you have visited'
     },
     passport: {
@@ -4811,6 +4868,220 @@ const en = {
         heading: {
           hasCoOwners: 'Are there any co-owners of this foreign financial interest?',
           hasCoOwnersAppend: 'Are there any additional co-owners of this foreign financial interest?'
+        }
+      }
+    },
+    contacts: {
+      heading: {
+        title: 'Do you have, or have you had, close and/or continuing contact with a foreign national within the last seven (7) years with whom you, or your spouse, or legally recognized civil union/domestic partner, or cohabitant are bound by affection, influence, common interests, and/or obligation?',
+        name: 'Provide the full name of the foreign national, if known',
+        firstcontact: 'Provide the approximate date of first contact',
+        lastcontact: 'Provide the approximate date of last contact',
+        methods: 'Provide methods of contact',
+        frequency: 'Provide approximate frequency of contact',
+        relationship: 'Provide the nature of relationship',
+        aliases: 'Has this foreign national used any other names and/or nicknames?',
+        aliases2: 'Any additional other names and/or nicknames for this foreign national?',
+        aliasname: 'Provide the other name or nickname',
+        citizenship: 'Provide country(ies) of citizenship',
+        birthdate: 'Provide date of birth',
+        birthplace: 'Provide place of birth',
+        address: 'Provide current address',
+        employer: 'Provide the name of the foreign national\'s current employer, or provide the name of their most recent employer if not currently employed',
+        employeraddress: 'Provid the address of the foreign national\'s current employer, or provide the address of their most recent employer if not currently employed',
+        hasaffiliations: 'Is this foreign national affiliated with a foreign government, military, security, defense industry, or intelligence service?',
+        affiliations: 'Describe the contact\'s relationship with the foreign government, military, security, defense industry, or intelligence service',
+        explanation: 'Explanation'
+      },
+      para: {
+        includes: 'Include associates as well as relatives, not previously listed in the relatives section.',
+        definition: 'A foreign national is defined as any person who is not a citizen or national of the U.S.',
+        or: 'Or',
+        checkall: 'Check all that apply'
+      },
+      label: {
+        idk: 'I don\'t know',
+        inperson: 'In person',
+        telephone: 'Telephone',
+        electronic: [
+          'Electronic',
+          '(such as e-mail, texting, chat rooms, etc)'
+        ],
+        written: 'Written correspondence',
+        daily: 'Daily',
+        weekly: 'Weekly',
+        monthly: 'Monthly',
+        quarterly: 'Quarterly',
+        annually: 'Annually',
+        professional: 'Professional or business',
+        personal: [
+          'Personal',
+          '(such as family ties, friendship, affection, common interests, etc)'
+        ],
+        obligation: [
+          'Obligation',
+          '(provide explanation)'
+        ],
+        other: [
+          'Other',
+          '(provide explanation)'
+        ]
+      },
+      help: {
+        branch: {
+          title: 'Need help determining if you know any foreign nationals?',
+          message: 'If you know anyone who is not a U.S. citizen or national then please click "yes"',
+          note: 'Note: A foreign national is defined as any person who is not a citizen or national of the U.S.'
+        },
+        firstcontact: {
+          title: 'Need help with the date of your first contact?',
+          message: 'Provide the approximate date of our first contact with the individual',
+          note: ''
+        },
+        lastcontact: {
+          title: 'Need help with the date of your last contact?',
+          message: 'Provide the approximate date of the last contact you had with the individual',
+          note: ''
+        },
+        methods: {
+          title: 'Need help with the methods of your communication?',
+          message: 'Check all the communication methods you may use in your correspondence',
+          note: ''
+        },
+        frequency: {
+          title: 'Need help with the frequency of your communication?',
+          message: 'Select the appropriate frequency of your correspondence',
+          note: ''
+        },
+        relationship: {
+          title: 'Need help with your relationship with this foreign national?',
+          message: 'Check all the which apply to your relationship with the individual',
+          note: ''
+        },
+        aliases: {
+          title: 'Need help with any other names or nicknames?',
+          message: 'If you are aware of any nicknames or other names the individual may have used then pleas provide them',
+          note: ''
+        },
+        citizenship: {
+          title: 'Need help with their citizenship?',
+          message: 'Provide one or more citizenships the foreign natural has',
+          note: ''
+        },
+        birthdate: {
+          title: 'Need help with their date of birth?',
+          message: 'Provide the approximate date of birth of the individual',
+          note: 'Note: If you do not know then you may select "I don\'t know"'
+        },
+        birthplace: {
+          title: 'Need help with their place of birth?',
+          message: 'Provide the place of birth of the individual',
+          note: 'Note: If you do not know then you may select "I don\'t know"'
+        },
+        address: {
+          title: 'Need help with their current address?',
+          message: 'Provide their most recent address',
+          note: 'Note: If you do not know then you may select "I don\'t know"'
+        },
+        employer: {
+          title: 'Need help with the employer?',
+          message: 'Provide the name of their most recent employer',
+          note: 'Note: If you do not know then you may select "I don\'t know"'
+        },
+        employeraddress: {
+          title: 'Need help with the employer address?',
+          message: 'Provide the address of their most recent employer',
+          note: 'Note: If you do not know then you may select "I don\'t know"'
+        },
+        hasaffiliations: {
+          title: 'Does this person have any affiliations?',
+          message: 'If the person has a relationship with a foreign government, military, security, defense industry, or intelligence service then select "yes"',
+          note: ''
+        },
+        affiliations: {
+          title: 'Need help describing their affiliations?',
+          message: 'Describe the individuals relationship(s) with the foreign affiliations',
+          note: ''
+        }
+      },
+      collection: {
+        summary: {
+          title: 'Summary of foreign contacts',
+          item: 'Foreign national',
+          unknown: 'Provide the foreign national below'
+        },
+        appendTitle: 'Do you have, or have you had, close and/or continuing contact with any additional foreign national within the last seven (7) years with whom you, or your spouse, or cohabitant are bound by affection, influence, common interests, and/or obligation?',
+        appendMessage: [
+          'Include associates as well as relatives, not previously listed in the relatives section.',
+          'If yes use the button below to add another association.'
+        ],
+        append: 'Add another association'
+      }
+    },
+
+    business: {
+      advice: {
+        heading: {
+          title: 'Have you in the last seven (7) years provided advice or support to any individual associated with a foreign business or other foreign organization that you have not previously listed as a former employer?',
+          description: 'Provide how the financial interest was acquired',
+          name: 'Provide the name of the individual to whom advice or support was provided',
+          organization: 'Provide the name of the foreign organization or foreign business with whom the individual is associated',
+          country: 'Provide the country of origin for the organization or business',
+          dates: 'Provide the date(s) during which this advice or support was provided',
+          compensation: 'Describe what compensation, if any, was provided for your service'
+        },
+        para: {
+          branch: 'Provide a description of advice/support provided'
+        },
+        help: {
+          branch: {
+            title: 'Need help determining if you have provided advice to foreign businesses?',
+            message: 'If you have provided any advice to a foreign individual or business then select "yes"',
+            note: 'Note: Answer "no" if **all** your advice or support was authorized pursuant to official U.S. Government business.'
+          },
+          description: {
+            title: 'Need help with the description?',
+            message: 'Provide how the support was provided',
+            note: ''
+          },
+          name: {
+            title: 'Need help with the name of the contact?',
+            message: 'Provide the name of the individual or a contact of the business',
+            note: ''
+          },
+          organization: {
+            title: 'Need help with the organization name?',
+            message: 'Provide the name of the business',
+            note: ''
+          },
+          country: {
+            title: 'Need help with the country of origin?',
+            message: 'Provide the country where the business is based',
+            note: ''
+          },
+          dates: {
+            title: 'Need help with the dates the service was provided?',
+            message: 'Provide the approximate date range your services your provided',
+            note: ''
+          },
+          compensation: {
+            title: 'Need help with compensation?',
+            message: 'Any monetary, favor, trade, or other type of exchange for services render constitutes as compensation',
+            note: ''
+          }
+        },
+        collection: {
+          summary: {
+            title: 'Summary of foreign business advice',
+            item: 'Advice',
+            unknown: 'Provide details of foreign business advice below'
+          },
+          appendTitle: 'Have you in the last seven (7) years provided advice or support to any other individual associated with a foreign business or other foreign organization that you have not previously listed as a former employer?',
+          appendMessage: [
+            'Answer **"No"** if all your advice or support was authorized pursuant to official U.S. Government business.',
+            'If yes use the button below to add another interest'
+          ],
+          append: 'Add another interest'
         }
       }
     }
@@ -5312,7 +5583,7 @@ const en = {
       heading: {
         admission: 'Was the admission voluntary or involuntary?',
         treatment: 'Provide the dates of treatment',
-        facility: 'Provide the facility where treatment was provided',
+        facility: 'Provide the name of the facility where treatment was provided',
         address: 'Provide the address of the facility where treatment was provided',
         explanation: 'Provide explanation'
       },

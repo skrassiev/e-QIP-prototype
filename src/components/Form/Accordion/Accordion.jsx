@@ -45,6 +45,7 @@ export default class Accordion extends ValidationElement {
     this.summary = this.summary.bind(this)
     this.details = this.details.bind(this)
     this.content = this.content.bind(this)
+    this.remove = this.remove.bind(this)
   }
 
   /**

@@ -2,7 +2,7 @@ import { validGenericTextfield, validGenericMonthYear, validNotApplicable, valid
 import CoOwnersValidator from './coowner'
 
 export default class DirectInterestsValidator {
-  constructor (state, props) {
+  constructor (state, props = {}) {
     this.hasInterests = props.HasInterests || ''
     this.list = props.List || []
   }
@@ -26,7 +26,7 @@ export default class DirectInterestsValidator {
 }
 
 export class DirectInterestValidator {
-  constructor (state, props) {
+  constructor (state, props = {}) {
     this.interestTypes = props.InterestTypes
     this.interestType = props.InterestType
     this.acquired = props.Acquired

@@ -1,7 +1,7 @@
 import React from 'react'
 import { i18n } from '../../../../config'
 import { Accordion, ValidationElement, Branch, Show } from '../../../Form'
-//import { CompetenceValidator } from '../../../../validators'
+import { DirectInterestsValidator } from '../../../../validators'
 import Interest from '../Interest'
 
 export default class Direct extends ValidationElement {
@@ -15,6 +15,7 @@ export default class Direct extends ValidationElement {
     this.update = this.update.bind(this)
     this.updateHasInterests = this.updateHasInterests.bind(this)
     this.updateList = this.updateList.bind(this)
+    this.isValid = this.isValid.bind(this)
   }
 
   update (field, values) {
@@ -36,7 +37,7 @@ export default class Direct extends ValidationElement {
   }
 
   isValid () {
-    return true
+    return new DirectInterestsValidator(null, this.props).isValid()
   }
 
   handleValidation (event, status, error) {

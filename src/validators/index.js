@@ -38,6 +38,9 @@ import MaritalValidator from './marital'
 import CohabitantsValidator from './cohabitant'
 import RelationshipsValidator from './relationships'
 import PeopleValidator from './people'
+import ForeignContactsValidator from './foreigncontacts'
+import DirectInterestsValidator from './directinterest'
+import ForeignBusinessAdviceValidator from './foreignbusinessadvice'
 
 export {
   AddressValidator,
@@ -83,5 +86,8 @@ export {
   MaritalValidator,
   CohabitantsValidator,
   RelationshipsValidator,
-  PeopleValidator
+  PeopleValidator,
+  ForeignContactsValidator,
+  DirectInterestsValidator,
+  ForeignBusinessAdviceValidator
 }
