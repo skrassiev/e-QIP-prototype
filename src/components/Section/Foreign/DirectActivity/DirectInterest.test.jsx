@@ -1,10 +1,10 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import Interest from './Interest'
+import DirectInterest from './DirectInterest'
 
-describe('The Interest component', () => {
+describe('The DirectInterest component', () => {
   it('Renders without errors', () => {
-    const component = mount(<Interest />)
+    const component = mount(<DirectInterest />)
     expect(component.find('.interest').length).toBe(1)
   })
 
@@ -14,7 +14,7 @@ describe('The Interest component', () => {
 
     // load interest types to test toggling since this is using all props
     const interestTypes = ['Yourself']
-    const component = mount(<Interest onUpdate={onUpdate} InterestTypes={interestTypes} />)
+    const component = mount(<DirectInterest onUpdate={onUpdate} InterestTypes={interestTypes} />)
     expect(component.find('.interest').length).toBe(1)
     component.find({name: 'interest-type', value: 'Yourself'}).simulate('change')
     component.find({name: 'interest-type', value: 'Spouse'}).simulate('change')

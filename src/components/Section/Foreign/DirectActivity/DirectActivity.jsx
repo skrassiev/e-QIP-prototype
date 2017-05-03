@@ -2,7 +2,7 @@ import React from 'react'
 import { i18n } from '../../../../config'
 import { Accordion, ValidationElement, Branch, Show } from '../../../Form'
 import { DirectInterestsValidator } from '../../../../validators'
-import Interest from '../Interest'
+import DirectInterest from './DirectInterest'
 
 export default class DirectActivity extends ValidationElement {
   constructor (props) {
@@ -57,18 +57,26 @@ export default class DirectActivity extends ValidationElement {
   }
 
   summary (item, index) {
-    const o = (item || {}).Competence || {}
-    const occurred = (o.Occurred || {}).date ? `${o.Occurred.month}/${o.Occurred.year}` : ''
-    const courtName = (o.CourtName || {}).value ? o.CourtName.value : null
+    const o = (item || {}).DirectInterest || {}
+    const who = (o.InterestTypes || []).join(', ')
+    const interestType = (o.InterestType || {}).value ? o.InterestType.value : ''
+    const cost = (o.Cost || {}).value ? '$' + o.Cost.value : ''
     const type = i18n.t('foreign.direct.collection.itemType')
+
+    const summary = [who, interestType].reduce((prev, next) => {
+      if (prev && next) {
+        return prev + ' - ' + next
+      }
+      return prev
+    })
 
     return (
       <span className="content">
         <span className="index">{type} {index + 1}:</span>
-        <span className="courtname">
-          <strong>{courtName || i18n.t('foreign.direct.collection.summary')}</strong>
+        <span className="interest">
+          <strong>{summary || i18n.t('foreign.direct.collection.summary')}</strong>
         </span>
-        <span className="occurred"><strong>{courtName && occurred}</strong></span>
+        <span className="cost">{cost}</span>
       </span>
     )
   }
@@ -95,9 +103,8 @@ export default class DirectActivity extends ValidationElement {
             appendTitle={i18n.t('foreign.direct.collection.appendTitle')}
             appendMessage={i18n.m('foreign.direct.collection.appendMessage')}
             appendLabel={i18n.t('foreign.direct.collection.appendLabel')}>
-            <Interest name="DirectInterest"
+            <DirectInterest name="DirectInterest"
               bind={true}
-              prefix="direct"
             />
           </Accordion>
         </Show>

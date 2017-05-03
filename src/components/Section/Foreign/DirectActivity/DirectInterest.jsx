@@ -1,9 +1,9 @@
 import React from 'react'
-import { i18n } from '../../../config'
-import { ValidationElement, Currency, Field, Text, DateControl, Textarea, NotApplicable, Checkbox, CheckboxGroup } from '../../Form'
-import CoOwners from './CoOwners'
+import { i18n } from '../../../../config'
+import { ValidationElement, Currency, Field, Text, DateControl, Textarea, NotApplicable, Checkbox, CheckboxGroup } from '../../../Form'
+import CoOwners from '../CoOwners'
 
-export default class Interest extends ValidationElement {
+export default class DirectInterest extends ValidationElement {
   constructor (props) {
     super(props)
 
@@ -90,33 +90,33 @@ export default class Interest extends ValidationElement {
     const prefix = this.props.prefix
     return (
       <div className="interest">
-        <Field title={i18n.t(`foreign.${prefix}.heading.interestTypes`)}
-          help={`foreign.${prefix}.help.interestType`}
+        <Field title={i18n.t(`foreign.direct.interest.heading.interestTypes`)}
+          help={`foreign.direct.interest.help.interestType`}
           adjustFor="big-buttons">
 
-          <p>{i18n.t(`foreign.${prefix}.para.checkAll`)}</p>
+          <p>{i18n.t(`foreign.direct.interest.para.checkAll`)}</p>
           <CheckboxGroup className="interest-types option-list"
             selectedValues={this.props.InterestTypes}>
             <Checkbox name="interest-type"
-              label={i18n.m(`foreign.${prefix}.label.interestTypes.yourself`)}
+              label={i18n.m(`foreign.direct.interest.label.interestTypes.yourself`)}
               value="Yourself"
               className="yourself"
               onChange={this.updateInterestTypes}
             />
             <Checkbox name="interest-type"
-              label={i18n.m(`foreign.${prefix}.label.interestTypes.spouse`)}
+              label={i18n.m(`foreign.direct.interest.label.interestTypes.spouse`)}
               value="Spouse"
               className="spouse"
               onChange={this.updateInterestTypes}
             />
             <Checkbox name="interest-type"
-              label={i18n.m(`foreign.${prefix}.label.interestTypes.cohabitant`)}
+              label={i18n.m(`foreign.direct.interest.label.interestTypes.cohabitant`)}
               value="Cohabitant"
               className="cohabitant"
               onChange={this.updateInterestTypes}
             />
             <Checkbox name="interest-type"
-              label={i18n.m(`foreign.${prefix}.label.interestTypes.dependentChildren`)}
+              label={i18n.m(`foreign.direct.interest.label.interestTypes.dependentChildren`)}
               value="DependentChildren"
               className="dependent-children"
               onChange={this.updateInterestTypes}
@@ -124,8 +124,8 @@ export default class Interest extends ValidationElement {
           </CheckboxGroup>
         </Field>
 
-        <Field title={i18n.t(`foreign.${prefix}.heading.interestType`)}
-          help={`foreign.${prefix}.help.interestType`}
+        <Field title={i18n.t(`foreign.direct.interest.heading.interestType`)}
+          help={`foreign.direct.interest.help.interestType`}
           adjustFor="labels"
           shrink={true}>
           <Text name="InterestType"
@@ -136,14 +136,14 @@ export default class Interest extends ValidationElement {
           />
         </Field>
 
-        <Field title={i18n.t(`foreign.${prefix}.heading.acquired`)}
-          help={`foreign.${prefix}.help.acquired`}
+        <Field title={i18n.t(`foreign.direct.interest.heading.acquired`)}
+          help={`foreign.direct.interest.help.acquired`}
           adjustFor="labels"
           shrink={true}>
           <DateControl name="Acquired"
             className="acquired"
             {...this.props.Acquired}
-            label={i18n.t(`foreign.${prefix}.label.acquired`)}
+            label={i18n.t(`foreign.direct.interest.label.acquired`)}
             hideDay={true}
             maxDate={new Date()}
             prefix={this.props.prefix}
@@ -152,8 +152,8 @@ export default class Interest extends ValidationElement {
           />
         </Field>
 
-        <Field title={i18n.t(`foreign.${prefix}.heading.howAcquired`)}
-          help={`foreign.${prefix}.help.howAcquired`}>
+        <Field title={i18n.t(`foreign.direct.interest.heading.howAcquired`)}
+          help={`foreign.direct.interest.help.howAcquired`}>
           <Textarea name="HowAcquired"
             className="how-acquired"
             {...this.props.HowAcquired}
@@ -162,8 +162,8 @@ export default class Interest extends ValidationElement {
           />
         </Field>
 
-        <Field title={i18n.t(`foreign.${prefix}.heading.cost`)}
-          help={`foreign.${prefix}.help.cost`}>
+        <Field title={i18n.t(`foreign.direct.interest.heading.cost`)}
+          help={`foreign.direct.interest.help.cost`}>
           <Currency name="Cost"
             className="cost"
             {...this.props.Cost}
@@ -172,8 +172,8 @@ export default class Interest extends ValidationElement {
           />
         </Field>
 
-        <Field title={i18n.t(`foreign.${prefix}.heading.value`)}
-          help={`foreign.${prefix}.help.value`}>
+        <Field title={i18n.t(`foreign.direct.interest.heading.value`)}
+          help={`foreign.direct.interest.help.value`}>
           <Currency name="Value"
             className="value"
             {...this.props.Value}
@@ -182,19 +182,19 @@ export default class Interest extends ValidationElement {
           />
         </Field>
 
-        <Field title={i18n.t(`foreign.${prefix}.heading.relinquished`)}
-          help={`foreign.${prefix}.help.relinquished`}
+        <Field title={i18n.t(`foreign.direct.interest.heading.relinquished`)}
+          help={`foreign.direct.interest.help.relinquished`}
           adjustFor="labels"
           shrink={true}>
           <NotApplicable name="RelinquishedNotApplicable"
             {...this.props.RelinquishedNotApplicable}
-            label={i18n.t(`foreign.${prefix}.label.relinquishedNotApplicable`)}
-            or={i18n.t(`foreign.${prefix}.label.or`)}
+            label={i18n.t(`foreign.direct.interest.label.relinquishedNotApplicable`)}
+            or={i18n.t(`foreign.direct.interest.label.or`)}
             onUpdate={this.updateRelinquishedNotApplicable}>
             <DateControl name="Relinquished"
               className="relinquished"
               {...this.props.Relinquished}
-              label={i18n.t(`foreign.${prefix}.label.relinquished`)}
+              label={i18n.t(`foreign.direct.interest.label.relinquished`)}
               hideDay={true}
               maxDate={new Date()}
               prefix={this.props.prefix}
@@ -204,8 +204,8 @@ export default class Interest extends ValidationElement {
           </NotApplicable>
         </Field>
 
-        <Field title={i18n.t(`foreign.${prefix}.heading.explanation`)}
-          help={`foreign.${prefix}.help.explanation`}>
+        <Field title={i18n.t(`foreign.direct.interest.heading.explanation`)}
+          help={`foreign.direct.interest.help.explanation`}>
           <Textarea name="Explanation"
             className="explanation"
             {...this.props.Explanation}
@@ -225,7 +225,7 @@ export default class Interest extends ValidationElement {
   }
 }
 
-Interest.defaultProps = {
+DirectInterest.defaultProps = {
   List: [],
-  prefix: 'direct'
+  prefix: 'direct.interest'
 }

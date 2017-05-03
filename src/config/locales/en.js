@@ -4776,73 +4776,11 @@ const en = {
       }
     },
     direct: {
-      para: {
-        intro: 'Foreign financial interest examples:  stocks, property, investments, bank accounts, ownership of corporate entities, corporate interests or exchange traded funds (ETFs) held in specific geographical or economic sectors.\n\n**Exclude financial interests in companies or diversified mutual funds or diversified ETFs that are publicly traded on a U.S. exchange.**',
-        checkAll: 'Check all that apply',
-        howAcquired: 'Such as purchase, gift, etc.'
-      },
       heading: {
         title: 'Have you, your spouse or legally recognized civil union/domestic partner, cohabitant, or dependent children EVER had any foreign financial interests in which you or they have direct control or direct ownership?',
-        interestTypes: 'Specify',
-        interestType: 'Provide the type of financial interest',
-        acquired: 'Provide the date acquired',
-        howAcquired: 'Provide how the financial interest was acquired',
-        cost: 'Provide the cost (in U.S. dollars) at time of acquisition',
-        value: 'Provide the current value (in U.S. dollars) or the value at the time control or ownership was sold, lost or otherwise disposed of.',
-        relinquished: 'Provide the date control or ownership was relinquished.',
-        explanation: 'Provide explanation of how interest control or ownership was sold, lost or otherwise disposed of. '
       },
-      label: {
-        relinquishedNotApplicable: 'Not applicable',
-        or: 'or',
-        interestTypes: {
-          yourself: 'Yourself',
-          spouse: 'Spouse or legally recognized civil union/domestic partner',
-          cohabitant: 'Cohabitant',
-          dependentChildren: 'Dependent children'
-        }
-      },
-      help: {
-        interestTypes: {
-          title: 'Need help with this field?',
-          message: '',
-          note: ''
-        },
-        interestType: {
-          title: 'Need help with this field?',
-          message: 'Provide the type of financial interest',
-          note: ''
-        },
-        acquired: {
-          title: 'Need help with this field?',
-          message: 'Provide the date acquired',
-          note: ''
-        },
-        howAcquired: {
-          title: 'Need help with this field?',
-          message: 'Provide how the financial interest was acquired',
-          note: ''
-        },
-        cost: {
-          title: 'Need help with this field?',
-          message: 'Provide the cost (in U.S. dollars) at time of acquisition',
-          note: ''
-        },
-        value: {
-          title: 'Need help with this field?',
-          message: 'Provide the current value (in U.S. dollars) or the value at the time control or ownership was sold, lost or otherwise disposed of.',
-          note: ''
-        },
-        relinquished: {
-          title: 'Need help with this field?',
-          message: 'Provide the date control or ownership was relinquished',
-          note: ''
-        },
-        explanation: {
-          title: 'Need help with this field?',
-          message: 'Provide explanation of how interest control or ownership was sold, lost or otherwise disposed of.',
-          note: ''
-        }
+      para: {
+        intro: 'Foreign financial interest examples:  stocks, property, investments, bank accounts, ownership of corporate entities, corporate interests or exchange traded funds (ETFs) held in specific geographical or economic sectors.\n\n**Exclude financial interests in companies or diversified mutual funds or diversified ETFs that are publicly traded on a U.S. exchange.**'
       },
       collection: {
         summary: 'Provide your direct financial interests here',
@@ -4852,24 +4790,91 @@ const en = {
         appendLabel: 'Add another interest',
         itemType: 'Interest'
       },
-      coOwner: {
+      interest: {
+        para: {
+          checkAll: 'Check all that apply',
+          howAcquired: 'Such as purchase, gift, etc.'
+        },
         heading: {
-          name: 'Provide full name of co-owner',
-          currentAddress: 'Provide co-owner current address',
-          countries: 'Provide co-owner’s country(ies) of citizenship',
-          relationshipNature: 'Provide the nature of your relationship with the co-owner'
-
+          interestTypes: 'Specify',
+          interestType: 'Provide the type of financial interest',
+          acquired: 'Provide the date acquired',
+          howAcquired: 'Provide how the financial interest was acquired',
+          cost: 'Provide the cost (in U.S. dollars) at time of acquisition',
+          value: 'Provide the current value (in U.S. dollars) or the value at the time control or ownership was sold, lost or otherwise disposed of.',
+          relinquished: 'Provide the date control or ownership was relinquished.',
+          explanation: 'Provide explanation of how interest control or ownership was sold, lost or otherwise disposed of. '
         },
         label: {
-          currentAddress: 'This address is'
+          relinquishedNotApplicable: 'Not applicable',
+          or: 'or',
+          interestTypes: {
+            yourself: 'Yourself',
+            spouse: 'Spouse or legally recognized civil union/domestic partner',
+            cohabitant: 'Cohabitant',
+            dependentChildren: 'Dependent children'
+          }
+        },
+        help: {
+          interestTypes: {
+            title: 'Need help with this field?',
+            message: '',
+            note: ''
+          },
+          interestType: {
+            title: 'Need help with this field?',
+            message: 'Provide the type of financial interest',
+            note: ''
+          },
+          acquired: {
+            title: 'Need help with this field?',
+            message: 'Provide the date acquired',
+            note: ''
+          },
+          howAcquired: {
+            title: 'Need help with this field?',
+            message: 'Provide how the financial interest was acquired',
+            note: ''
+          },
+          cost: {
+            title: 'Need help with this field?',
+            message: 'Provide the cost (in U.S. dollars) at time of acquisition',
+            note: ''
+          },
+          value: {
+            title: 'Need help with this field?',
+            message: 'Provide the current value (in U.S. dollars) or the value at the time control or ownership was sold, lost or otherwise disposed of.',
+            note: ''
+          },
+          relinquished: {
+            title: 'Need help with this field?',
+            message: 'Provide the date control or ownership was relinquished',
+            note: ''
+          },
+          explanation: {
+            title: 'Need help with this field?',
+            message: 'Provide explanation of how interest control or ownership was sold, lost or otherwise disposed of.',
+            note: ''
+          }
+        },
+        coOwner: {
+          heading: {
+            name: 'Provide full name of co-owner',
+            address: 'Provide co-owner current address',
+            countries: 'Provide co-owner’s country(ies) of citizenship',
+            relationshipNature: 'Provide the nature of your relationship with the co-owner'
+
+          },
+          label: {
+            address: 'This address is'
+          }
+        },
+        coOwners: {
+          heading: {
+            hasCoOwners: 'Are there any co-owners of this foreign financial interest?',
+            hasCoOwnersAppend: 'Are there any additional co-owners of this foreign financial interest?'
+          }
         }
-      },
-      coOwners: {
-        heading: {
-          hasCoOwners: 'Are there any co-owners of this foreign financial interest?',
-          hasCoOwnersAppend: 'Are there any additional co-owners of this foreign financial interest?'
-        }
-      }
     },
     contacts: {
       heading: {
@@ -5084,6 +5089,7 @@ const en = {
           append: 'Add another interest'
         }
       }
+    }
     }
   },
 
