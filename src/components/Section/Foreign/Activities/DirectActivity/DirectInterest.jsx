@@ -250,7 +250,6 @@ export default class DirectInterest extends ValidationElement {
           onUpdate={this.updateCoOwners}
           onValidate={this.props.onValidate}
         />
-
       </div>
     )
   }

@@ -208,6 +208,7 @@ export default class RealEstateInterest extends ValidationElement {
               toggle="false"
               checked={this.props.CostEstimated}
               onUpdate={this.updateCostEstimated}
+              onValidate={this.props.onValidate}
             />
           </div>
         </Field>

@@ -224,6 +224,7 @@ export default class IndirectInterest extends ValidationElement {
               toggle="false"
               checked={this.props.CostEstimated}
               onUpdate={this.updateCostEstimated}
+              onValidate={this.props.onValidate}
             />
           </div>
         </Field>
@@ -253,6 +254,7 @@ export default class IndirectInterest extends ValidationElement {
               toggle="false"
               checked={this.props.ValueEstimated}
               onUpdate={this.updateValueEstimated}
+              onValidate={this.props.onValidate}
             />
           </div>
         </Field>

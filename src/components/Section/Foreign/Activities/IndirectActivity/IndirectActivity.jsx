@@ -78,7 +78,7 @@ export default class IndirectActivity extends ValidationElement {
         <span className="interest">
           <strong>{summary || i18n.t('foreign.activities.indirect.collection.summary')}</strong>
         </span>
-        <span className="cost">{cost}</span>
+        <span className="cost"><strong>{cost}</strong></span>
       </span>
     )
   }

@@ -76,7 +76,7 @@ export default class RealEstateActivity extends ValidationElement {
         <span className="interest">
           <strong>{summary || i18n.t('foreign.activities.realestate.collection.summary')}</strong>
         </span>
-        <span className="acquired">{acquired}</span>
+        <span className="acquired"><strong>{acquired}</strong></span>
       </span>
     )
   }
