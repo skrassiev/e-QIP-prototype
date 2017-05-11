@@ -275,7 +275,6 @@ export default class Relative extends ValidationElement {
     return (
       <div className="relative-item">
         <Field title={i18n.t('relationships.relatives.heading.relation')}
-               help="relationships.relatives.help.relation"
                adjustFor="big-buttons">
           <CheckboxGroup className="relative-relation option-list"
                          selectedValues={this.state.Relations}>
@@ -485,7 +484,6 @@ export default class Relative extends ValidationElement {
         <Branch name="is_deceased"
                 className="relative-deceased"
                 value={this.state.IsDeceased}
-                help="relationships.relatives.help.deceased"
                 onUpdate={this.updateIsDeceased}
                 onValidate={this.props.onValidate}>
         </Branch>
