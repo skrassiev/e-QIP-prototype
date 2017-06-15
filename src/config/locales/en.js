@@ -6051,8 +6051,8 @@ const en = {
           },
           dates: {
             title: 'Need help with the dates of the conference?',
-            message: 'Provide the approximate date range of the conference.',
-            note: ''
+            message: 'Try looking up the event, this could help you find the dates.',
+            note: 'Note: If you can\'t find the exact date give us your best guess and check the "Estimated" checkbox.'
           },
           purpose: {
             title: 'Need help with the purpose of the conference?',
@@ -6060,13 +6060,13 @@ const en = {
             note: ''
           },
           contact: {
-            title: 'Need help concerning contact with a foreign national?',
-            message: 'If you had contact with foreign nationals directly due to the conference select "yes".',
+            title: 'Need help with this question?',
+            message: 'Did you have contact with any foreign nationals after this event? If so answer "Yes".',
             note: ''
           },
           explanation: {
-            title: 'Need help with the explanation?',
-            message: 'Describe the circumstances and/or outcome of the contact.',
+            title: 'Need help with this explanation?',
+            message: 'Tell us all the circumstances and/or outcome of the contact.',
             note: ''
           }
         },
