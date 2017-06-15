@@ -63,7 +63,6 @@ export default class Ventures extends SubsectionElement {
                 label={i18n.t('foreign.business.ventures.heading.title')}
                 labelSize="h3"
                 adjustFor="p"
-                help="foreign.business.ventures.help.branch"
                 value={this.state.HasForeignVentures}
                 onUpdate={this.updateHasForeignVentures}
                 onError={this.handleError}>
@@ -106,16 +105,14 @@ export default class Ventures extends SubsectionElement {
                        />
             </Field>
 
-            <Field title={i18n.t('foreign.business.ventures.heading.description')}
-                   help="foreign.business.ventures.help.description">
+            <Field title={i18n.t('foreign.business.ventures.heading.description')}>
               <Textarea name="Description"
                         className="ventures-description"
                         bind={true}
                         />
             </Field>
 
-            <Field title={i18n.t('foreign.business.ventures.heading.relationship')}
-                   help="foreign.business.ventures.help.relationship">
+            <Field title={i18n.t('foreign.business.ventures.heading.relationship')}">
               <Textarea name="Relationship"
                         className="ventures-relationship"
                         bind={true}
@@ -131,40 +128,35 @@ export default class Ventures extends SubsectionElement {
                          />
             </Field>
 
-            <Field title={i18n.t('foreign.business.ventures.heading.association')}
-                   help="foreign.business.ventures.help.association">
+            <Field title={i18n.t('foreign.business.ventures.heading.association')}>
               <Textarea name="Association"
                         className="ventures-association"
                         bind={true}
                         />
             </Field>
 
-            <Field title={i18n.t('foreign.business.ventures.heading.position')}
-                   help="foreign.business.ventures.help.position">
+            <Field title={i18n.t('foreign.business.ventures.heading.position')}>
               <Text name="Position"
                     className="ventures-position"
                     bind={true}
                     />
             </Field>
 
-            <Field title={i18n.t('foreign.business.ventures.heading.service')}
-                   help="foreign.business.ventures.help.service">
+            <Field title={i18n.t('foreign.business.ventures.heading.service')}>
               <Text name="Service"
                     className="ventures-service"
                     bind={true}
                     />
             </Field>
 
-            <Field title={i18n.t('foreign.business.ventures.heading.support')}
-                   help="foreign.business.ventures.help.support">
+            <Field title={i18n.t('foreign.business.ventures.heading.support')}>
               <Text name="Support"
                     className="ventures-support"
                     bind={true}
                     />
             </Field>
 
-            <Field title={i18n.t('foreign.business.ventures.heading.compensation')}
-                   help="foreign.business.ventures.help.compensation">
+            <Field title={i18n.t('foreign.business.ventures.heading.compensation')}>
               <Textarea name="Compensation"
                         className="ventures-compensation"
                         bind={true}
