@@ -5947,8 +5947,8 @@ const en = {
             note: ''
           },
           citizenship: {
-            title: 'Need help with the foreign national\'s citizenship?',
-            message: 'Provide the country(ies) the foreign national has citizenship',
+            title: 'Need help with this foreign national\'s citizenship(s)?',
+            message: 'Tell us all of the citizenships this person has.',
             note: 'Note: You can provide multiple citizenships in this question.'
           },
           description: {
@@ -5963,8 +5963,8 @@ const en = {
           },
           dates: {
             title: 'Need help with the dates involved?',
-            message: 'Provide the approximate date range you were involved with the business venture',
-            note: ''
+            message: 'Tell us how long you were involved with the business venture.',
+            note: 'Note: If you are not sure of the exact dates give us your best guess and check the "Estimated" checkbox.'
           },
           association: {
             title: 'Need help with the association to the venture?',
