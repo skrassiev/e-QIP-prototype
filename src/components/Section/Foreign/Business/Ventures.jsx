@@ -88,7 +88,6 @@ export default class Ventures extends SubsectionElement {
                   />
 
             <Field title={i18n.t('foreign.business.ventures.heading.address')}
-                   help="foreign.business.ventures.help.address"
                    adjustFor="address">
               <Address name="Address"
                        className="ventures-address"
