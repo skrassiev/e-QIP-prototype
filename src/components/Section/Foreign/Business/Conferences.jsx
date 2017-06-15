@@ -62,7 +62,6 @@ export default class Conferences extends SubsectionElement {
                 label={i18n.t('foreign.business.conferences.heading.title')}
                 labelSize="h3"
                 adjustFor="p"
-                help="foreign.business.conferences.help.branch"
                 value={this.state.HasForeignConferences}
                 onUpdate={this.updateHasForeignConferences}
                 onError={this.handleError}>
@@ -81,32 +80,28 @@ export default class Conferences extends SubsectionElement {
                      appendTitle={i18n.t('foreign.business.conferences.collection.appendTitle')}
                      appendMessage={i18n.m('foreign.business.conferences.collection.appendMessage')}
                      appendLabel={i18n.t('foreign.business.conferences.collection.append')}>
-            <Field title={i18n.t('foreign.business.conferences.heading.description')}
-                   help="foreign.business.conferences.help.description">
+            <Field title={i18n.t('foreign.business.conferences.heading.description')}>
               <Textarea name="Description"
                         className="conferences-description"
                         bind={true}
                         />
             </Field>
 
-            <Field title={i18n.t('foreign.business.conferences.heading.sponsor')}
-                   help="foreign.business.conferences.help.sponsor">
+            <Field title={i18n.t('foreign.business.conferences.heading.sponsor')}>
               <Text name="Sponsor"
                     className="conferences-sponsor"
                     bind={true}
                     />
             </Field>
 
-            <Field title={i18n.t('foreign.business.conferences.heading.city')}
-                   help="foreign.business.conferences.help.city">
+            <Field title={i18n.t('foreign.business.conferences.heading.city')}>
               <Text name="City"
                     className="conferences-city"
                     bind={true}
                     />
             </Field>
 
-            <Field title={i18n.t('foreign.business.conferences.heading.country')}
-                   help="foreign.business.conferences.help.country">
+            <Field title={i18n.t('foreign.business.conferences.heading.country')}>
               <Country name="Country"
                        className="conferences-country"
                        bind={true}
@@ -122,8 +117,7 @@ export default class Conferences extends SubsectionElement {
                          />
             </Field>
 
-            <Field title={i18n.t('foreign.business.conferences.heading.purpose')}
-                   help="foreign.business.conferences.help.purpose">
+            <Field title={i18n.t('foreign.business.conferences.heading.purpose')}>
               <Textarea name="Purpose"
                         className="conferences-purpose"
                         bind={true}
