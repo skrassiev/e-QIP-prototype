@@ -39,7 +39,6 @@ export default class SubsequentContacts extends ValidationElement {
                           onUpdate={this.updateList}
                           onError={this.props.onError}>
           <Field title={i18n.t('foreign.business.contact.heading.subsequent')}
-                 help="foreign.business.contact.help.subsequent"
                  adjustFor="textarea">
             <Textarea name="Subsequent"
                       className="foreign-business-contact-subsequent"
@@ -57,7 +56,6 @@ export default class SubsequentContacts extends ValidationElement {
           </Field>
 
           <Field title={i18n.t('foreign.business.contact.heading.future')}
-                 help="foreign.business.contact.help.future"
                  adjustFor="textarea">
             <Textarea name="Future"
                       className="foreign-business-contact-future"
