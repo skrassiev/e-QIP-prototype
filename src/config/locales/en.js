@@ -6125,14 +6125,14 @@ const en = {
             note: ''
           },
           date: {
-            title: 'Need help with the date of contact?',
-            message: 'Provide the approximate date of contact.',
-            note: ''
+            title: 'Need help with this date?',
+            message: 'Let us know when this contact happened.',
+            note: 'Note: If you are not sure of the exact date give us your best guess and check the "Estimated" checkbox.'
           },
           governments: {
             title: 'Need help with the governments associated?',
-            message: 'Provide the governments associated with this contact.',
-            note: 'Note: You can provide multiple government in this question.'
+            message: 'Tell us all of the governments that were involved in this contact.',
+            note: 'Note: You can provide multiple governments in this question.'
           },
           establishment: {
             title: 'Need help with the establishment?',
@@ -6151,7 +6151,7 @@ const en = {
           },
           hassubsequent: {
             title: 'Need help with any subsequent contacts?',
-            message: 'If there were any subsequent contact initiated by you or your immediate family select "Yes".',
+            message: 'If there were any other contacts with the foreign organization select "Yes".',
             note: ''
           },
           subsequent: {
@@ -6161,8 +6161,8 @@ const en = {
           },
           recent: {
             title: 'Need help with the recent date of contact?',
-            message: 'Provide the approximate date of the most recent contact.',
-            note: ''
+            message: 'Tell us when the most recent contact happened.',
+            note: 'Note: If you are not sure of the exact date give us your best guess and check the "Estimated" checkbox.'
           },
           future: {
             title: 'Need help explaining future plans of contact?',
