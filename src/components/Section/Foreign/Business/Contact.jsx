@@ -68,7 +68,6 @@ export default class Contact extends SubsectionElement {
         <Branch name="has_foreign_contact"
                 label={i18n.t('foreign.business.contact.heading.title')}
                 labelSize="h3"
-                help="foreign.business.contact.help.branch"
                 value={this.props.HasForeignContact}
                 onUpdate={this.updateHasForeignContact}
                 onError={this.handleError}>
@@ -94,7 +93,6 @@ export default class Contact extends SubsectionElement {
                   />
 
             <Field title={i18n.t('foreign.business.contact.heading.location')}
-                   help="foreign.business.contact.help.location"
                    adjustFor="address">
               <BirthPlace name="Location"
                           help=""
@@ -127,7 +125,6 @@ export default class Contact extends SubsectionElement {
             </Field>
 
             <Field title={i18n.t('foreign.business.contact.heading.establishment')}
-                   help="foreign.business.contact.help.establishment"
                    adjustFor="textarea">
               <Textarea name="Establishment"
                         className="foreign-business-contact-establishment"
@@ -136,7 +133,6 @@ export default class Contact extends SubsectionElement {
             </Field>
 
             <Field title={i18n.t('foreign.business.contact.heading.representatives')}
-                   help="foreign.business.contact.help.representatives"
                    adjustFor="textarea">
               <Textarea name="Representatives"
                         className="foreign-business-contact-representatives"
@@ -145,7 +141,6 @@ export default class Contact extends SubsectionElement {
             </Field>
 
             <Field title={i18n.t('foreign.business.contact.heading.purpose')}
-                   help="foreign.business.contact.help.purpose"
                    adjustFor="textarea">
               <Textarea name="Purpose"
                         className="foreign-business-contact-purpose"
