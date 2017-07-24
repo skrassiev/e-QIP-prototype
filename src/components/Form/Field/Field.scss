@@ -8,7 +8,7 @@
   margin-bottom: 7rem;
 
   @media screen and (max-width: 1380px) {
-    padding-left: 1rem;
+    padding-left: 2.7rem;
   }
 
   @media screen and (max-width: 850px) {
@@ -242,14 +242,14 @@
 
         @media screen and (max-width: 1380px) {
           > .toggle svg {
-            margin-left: 0.3rem;
+            //margin-left: 0.3rem;
             margin-right: 0.3rem;
           }
         }
 
         @media screen and (max-width: 1024px) {
           > .toggle svg {
-            margin-left: 1.4rem;
+            //margin-left: 1.4rem;
             margin-right: -0.6rem;
           }
         }
